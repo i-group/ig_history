@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-11-28T11:25:07Z" product-name="ig_history">
+		<header/>
+		<body>
+			<trans-unit id="headline.description">
+				<source>Headline</source>
+			</trans-unit>
+			<trans-unit id="subheadline.description">
+				<source>Subheadline</source>
+			</trans-unit>
+			<trans-unit id="images.description">
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>Description</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

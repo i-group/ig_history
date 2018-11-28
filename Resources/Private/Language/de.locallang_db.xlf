@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2018-11-28T11:25:07Z" product-name="ig_history">
+		<header/>
+		<body>
+			<trans-unit id="tx_ighistory_domain_model_period">
+				<source>Period</source>
+				<target state="translated">Zeitabschnitt</target>
+			</trans-unit>
+			<trans-unit id="tx_ighistory_domain_model_period.year_start">
+				<source>Year Start</source>
+				<target state="translated">Jahr (von)</target>
+			</trans-unit>
+			<trans-unit id="tx_ighistory_domain_model_period.year_end">
+				<source>Year End</source>
+				<target state="translated">Jahr (bis)</target>
+			</trans-unit>
+			<trans-unit id="tx_ighistory_domain_model_period.elements">
+				<source>Elements</source>
+				<target state="translated">Elemente</target>
+			</trans-unit>
+			<trans-unit id="tx_ighistory_domain_model_element">
+				<source>Element</source>
+				<target state="translated">Element</target>
+			</trans-unit>
+			<trans-unit id="tx_ighistory_domain_model_element.headline">
+				<source>Headline</source>
+				<target state="translated">Überschrift</target>
+			</trans-unit>
+			<trans-unit id="tx_ighistory_domain_model_element.subheadline">
+				<source>Subheadline</source>
+				<target state="translated">Unterüberschrift</target>
+			</trans-unit>
+			<trans-unit id="tx_ighistory_domain_model_element.images">
+				<source>Images</source>
+				<target state="translated">Bilder</target>
+			</trans-unit>
+			<trans-unit id="tx_ighistory_domain_model_element.description">
+				<source>Description</source>
+				<target state="translated">Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_ig_history_history.name">
+				<source>History</source>
+				<target state="translated">Geschichte</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

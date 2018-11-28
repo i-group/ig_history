@@ -1,0 +1,53 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	<f:section name="Main">
+		<f:if condition="{periods}">
+			<div class="history-timeline">
+				<div class="history-spine"></div>
+				<div class="history-periods">
+					<f:for each="{periods}" as="period">
+						<f:if condition="{period.elements}">
+							<div class="history-period">
+								<div class="history-period-years">
+								<span>
+									{period.yearStart}<f:if condition="{period.yearEnd}"> - {period.yearEnd}</f:if>
+								</span>
+								</div>
+								<div class="history-period-elements">
+									<f:for each="{period.elements}" as="element">
+										<f:render section="Element" arguments="{element: element}" />
+									</f:for>
+								</div>
+							</div>
+						</f:if>
+					</f:for>
+				</div>
+			</div>
+		</f:if>
+	</f:section>
+
+	<f:section name="Element">
+		<div class="history-period-element">
+			<f:if condition="{element.images}">
+				<div class="history-period-element-images">
+					<a href="{f:uri.image(src: element.images.0.uid, treatIdAsReference: 1)}" data-fancybox="history-element-{element.uid}">
+						<f:image src="{element.images.0.uid}" treatIdAsReference="true" width="600c" />
+						<div class="history-period-element-images-overlay">
+							<i class="fa fa-search-plus"></i>
+						</div>
+					</a>
+				</div>
+			</f:if>
+			<div class="history-period-element-text">
+				<f:if condition="{element.subheadline}">
+					<p class="history-period-element-subheadline">{element.subheadline}</p>
+				</f:if>
+				<h3>{element.headline}</h3>
+				<f:if condition="{element.description}">
+					{element.description -> f:format.html()}
+				</f:if>
+			</div>
+		</div>
+	</f:section>
+</html>

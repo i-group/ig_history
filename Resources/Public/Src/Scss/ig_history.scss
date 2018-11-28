@@ -1,0 +1,160 @@
+@import '../../../../../ig_template/Resources/Public/Src/Scss/settings';
+@import '../../../../../ig_template/Resources/Public/Src/Scss/Utils/variables';
+
+.tx-ig-history {
+  .history-timeline {
+    position: relative;
+    max-width: rem-calc(900);
+    margin: 0 auto;
+
+    .history-spine {
+      background: $smooth-gray;
+      width: rem-calc(4);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .history-periods {
+      position: relative;
+      z-index: 10;
+    }
+
+    .history-period-years {
+      text-align: center;
+      padding: rem-calc(30 0);
+
+      > span {
+        font-weight: 700;
+        display: inline-block;
+        color: $white;
+        background: $primary-color;
+        padding: rem-calc(15 30);
+      }
+    }
+
+    .history-period-elements {
+      @include clearfix;
+    }
+
+    .history-period-element {
+      width: 50%;
+      margin: rem-calc(15 0);
+      position: relative;
+
+      &:before,
+      &:after {
+        content: "";
+        background: $smooth-gray;
+        position: absolute;
+        display: block;
+        transition: background $anim-dur ease;
+      }
+
+      &:before {
+        height: rem-calc(2);
+        width: rem-calc(100);
+        margin-top: rem-calc(13);
+      }
+
+      &:after {
+        border-radius: 50%;
+        width: rem-calc(26);
+        height: rem-calc(26);
+        border: rem-calc(3) solid $white;
+      }
+
+      &:nth-child(odd) {
+        float: left;
+        padding-right: 9%;
+
+        &:before,
+        &:after {
+          top: rem-calc(15);
+          right: 0;
+        }
+
+        &:after {
+          margin-right: rem-calc(-13);
+        }
+      }
+
+      &:nth-child(even) {
+        float: right;
+        padding-left: 9%;
+        margin-top: rem-calc(45);
+
+        &:before,
+        &:after {
+          top: rem-calc(55);
+          left: 0;
+        }
+
+        &:after {
+          margin-left: rem-calc(-13);
+        }
+      }
+
+      &:hover {
+        &:before,
+        &:after {
+          background: darken($smooth-gray, 15%);
+        }
+      }
+    }
+
+    .history-period-element-images,
+    .history-period-element-text {
+      position: relative;
+      z-index: 15;
+    }
+
+    .history-period-element-images {
+      position: relative;
+
+      .history-period-element-images-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($primary-color, .65);
+        visibility: hidden;
+        opacity: 0;
+        transition: all $anim-dur ease;
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+          transform: scale(.5);
+          transition: transform $anim-dur ease;
+          font-size: rem-calc(20);
+        }
+      }
+
+      &:hover .history-period-element-images-overlay {
+        visibility: visible;
+        opacity: 1;
+
+        i {
+          transform: scale(1);
+        }
+      }
+    }
+
+    .history-period-element-text {
+      background: $light-gray;
+      padding: rem-calc(23 30 30 30);
+    }
+
+    .history-period-element-subheadline {
+      margin-bottom: 0;
+      font-size: rem-calc(18);
+    }
+  }
+}
