@@ -71,6 +71,7 @@
 
                 &:nth-child(odd) {
                     float: left;
+                    clear: left;
                     padding-right: 9%;
 
                     &:before,
@@ -86,6 +87,7 @@
 
                 &:nth-child(even) {
                     float: right;
+                    clear: right;
                     padding-left: 9%;
                     margin-top: rem-calc(45);
 
