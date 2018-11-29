@@ -3,7 +3,7 @@ return [
     'ctrl' => [
         'title' => 'LLL:EXT:ig_history/Resources/Private/Language/locallang_db.xlf:tx_ighistory_domain_model_period',
         'label' => 'year_start',
-        'label_alt' => 'year_end',
+        'label_userFunc' => \Igroup\IgHistory\User\TcaLabels::class . '->periodLabel',
         'label_alt_force' => true,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
