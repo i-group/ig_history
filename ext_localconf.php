@@ -29,21 +29,26 @@ defined('TYPO3_MODE') || die('Access denied.');
      */
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
         'mod {
-                wizards.newContentElement.wizardItems.plugins {
-                    elements {
-                        history {
-                            iconIdentifier = ig_history-plugin-history
-                            title = LLL:EXT:ig_history/Resources/Private/Language/locallang_db.xlf:tx_ig_history_history.name
-                            description = LLL:EXT:ig_history/Resources/Private/Language/locallang_db.xlf:tx_ig_history_history.description
-                            tt_content_defValues {
-                                CType = list
-                                list_type = ighistory_history
-                            }
+            web_list {
+                table.tx_ighistory_domain_model_element.hideTable = 1
+                deniedNewTables := addToList(tx_ighistory_domain_model_element)
+            } 
+            
+            wizards.newContentElement.wizardItems.plugins {
+                elements {
+                    history {
+                        iconIdentifier = ig_history-plugin-history
+                        title = LLL:EXT:ig_history/Resources/Private/Language/locallang_db.xlf:tx_ig_history_history.name
+                        description = LLL:EXT:ig_history/Resources/Private/Language/locallang_db.xlf:tx_ig_history_history.description
+                        tt_content_defValues {
+                            CType = list
+                            list_type = ighistory_history
                         }
                     }
-                    show = *
                 }
-           }'
+                show = *
+            }
+       }'
     );
 
     /**
