@@ -13,7 +13,7 @@
 				<source>Year End</source>
 			</trans-unit>
 			<trans-unit id="tx_ighistory_domain_model_period.elements">
-				<source>Elements</source>
+				<source>Milestones</source>
 			</trans-unit>
 			<trans-unit id="tx_ighistory_domain_model_element">
 				<source>Element</source>

@@ -1,4 +1,6 @@
-<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+      data-namespace-typo3-fluid="true">
 	<f:layout name="Default" />
 
 	<f:section name="Main">
@@ -15,7 +17,7 @@
 								</span>
 								</div>
 								<div class="history-period-elements">
-									<f:for each="{period.elements}" as="element">
+									<f:for each="{period.elements -> v:iterator.sort(sortBy: 'sorting', order: 'DESC')}" as="element">
 										<f:render section="Element" arguments="{element: element}" />
 									</f:for>
 								</div>
@@ -31,12 +33,23 @@
 		<div class="history-period-element">
 			<f:if condition="{element.images}">
 				<div class="history-period-element-images">
-					<a href="{f:uri.image(src: element.images.0.uid, treatIdAsReference: 1)}" data-fancybox="history-element-{element.uid}">
-						<f:image src="{element.images.0.uid}" treatIdAsReference="true" width="600c" />
-						<div class="history-period-element-images-overlay">
-							<i class="fa fa-search-plus"></i>
-						</div>
-					</a>
+					<f:if condition="{element.images -> f:count()} > 1">
+						<f:then>
+							<div class="history-period-element-images-slider swiper-container">
+								<div class="swiper-wrapper">
+									<f:for each="{element.images}" as="image">
+										<div class="swiper-slide">
+											<f:render section="Image" arguments="{element: element, image: image}" />
+										</div>
+									</f:for>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</f:then>
+						<f:else>
+							<f:render section="Image" arguments="{element: element, image: element.images.0}" />
+						</f:else>
+					</f:if>
 				</div>
 			</f:if>
 			<div class="history-period-element-text">
@@ -49,5 +62,14 @@
 				</f:if>
 			</div>
 		</div>
+	</f:section>
+
+	<f:section name="Image">
+		<a href="{f:uri.image(src: image.uid, treatIdAsReference: 1)}" data-fancybox="history-element-{element.uid}">
+			<f:image src="{image.uid}" treatIdAsReference="true" width="600c" />
+			<div class="history-period-element-images-overlay">
+				<i class="fa fa-search-plus"></i>
+			</div>
+		</a>
 	</f:section>
 </html>

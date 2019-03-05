@@ -1,5 +1,6 @@
 @import '../../../../../ig_template/Resources/Public/Src/Scss/settings';
 @import '../../../../../ig_template/Resources/Public/Src/Scss/Utils/variables';
+@import '../../../../../ig_template/Resources/Public/Src/Scss/Utils/mixins';
 
 .tx-ig-history {
     .history-timeline {
@@ -119,6 +120,27 @@
 
         .history-period-element-images {
             position: relative;
+
+            .history-period-element-images-slider {
+                position: relative;
+
+                .swiper-pagination {
+                    position: absolute;
+                    bottom: rem-calc(10);
+                    left: 0;
+                    width: 100%;
+                    z-index: 10;
+
+                    .swiper-pagination-bullet {
+                        @include dot;
+                        border: 0;
+
+                        &.swiper-pagination-bullet-active {
+                            background: $primary-color;
+                        }
+                    }
+                }
+            }
 
             .history-period-element-images-overlay {
                 position: absolute;

@@ -48,6 +48,13 @@ class Element extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $description = '';
 
     /**
+     * sorting
+     *
+     * @var int
+     */
+    protected $sorting = 0;
+
+    /**
      * Returns the headline
      *
      * @return string $headline
@@ -151,5 +158,26 @@ class Element extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function removeImage(\TYPO3\CMS\Extbase\Domain\Model\FileReference $imageToRemove)
     {
         $this->images->detach($imageToRemove);
+    }
+
+    /**
+     * Returns the sorting
+     *
+     * @return int $sorting
+     */
+    public function getSorting()
+    {
+        return $this->sorting;
+    }
+
+    /**
+     * Sets the sorting
+     *
+     * @param int $sorting
+     * @return void
+     */
+    public function setSorting($sorting)
+    {
+        $this->sorting = $sorting;
     }
 }

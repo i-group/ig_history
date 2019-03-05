@@ -16,8 +16,8 @@
 				<target state="translated">Jahr (bis)</target>
 			</trans-unit>
 			<trans-unit id="tx_ighistory_domain_model_period.elements">
-				<source>Elements</source>
-				<target state="translated">Elemente</target>
+				<source>Milestones</source>
+				<target state="translated">Meilensteine</target>
 			</trans-unit>
 			<trans-unit id="tx_ighistory_domain_model_element">
 				<source>Element</source>

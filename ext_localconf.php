@@ -1,24 +1,34 @@
 <?php
 defined('TYPO3_MODE') || die('Access denied.');
 
-call_user_func(
-    function()
-    {
-        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'Igroup.IgHistory',
-            'History',
-            [
-                'Period' => 'list'
-            ],
-            // non-cacheable actions
-            [
-                'Period' => ''
-            ]
-        );
+(function () {
+    /**
+     * The extension key
+     */
+    $extKey = 'ig_history';
 
-        // wizards
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            'mod {
+    /**
+     * With vendor prefixed extensionName (e.g. 'Vendor.ExtensionName')
+     */
+    $extensionNameWithVendor = \Igroup\IgTemplate\Utility\ExtensionUtility::getExtensionName($extKey, true);
+
+    /**
+     * Configure single plugin
+     * Use \Igroup\IgTemplate\Utility\ExtensionUtility::configurePlugins() for more than one plugin!
+     */
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        $extensionNameWithVendor,
+        'History',
+        [
+            'Period' => 'list'
+        ]
+    );
+
+    /**
+     * Configure wizards
+     */
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+        'mod {
                 wizards.newContentElement.wizardItems.plugins {
                     elements {
                         history {
@@ -34,13 +44,15 @@ call_user_func(
                     show = *
                 }
            }'
-        );
+    );
 
-		$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-        $iconRegistry->registerIcon(
-            'ig_history-plugin-history',
-            \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-            ['source' => 'EXT:ig_history/Resources/Public/Icons/user_plugin_history.svg']
-        );
-    }
-);
+    /**
+     * Add icons to the IconRegistry
+     */
+    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+    $iconRegistry->registerIcon(
+        'ig_history-plugin-history',
+        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+        ['source' => 'EXT:ig_history/Resources/Public/Icons/user_plugin_history.svg']
+    );
+})();
